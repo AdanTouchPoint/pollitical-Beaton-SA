@@ -3,9 +3,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html, body{
-  width: 100%;
-  height: 100%;
+
+html, body, :root{
+ width: 100%;
+ height: 100%;
+ min-width: auto;
+ min-height: auto;
 }
 
 h2 {
@@ -14,6 +17,16 @@ font-family: var(--font-open-sans);
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
+}
+.main-app-container{
+  min-height: 100vh;
+  height: auto;
+  background-color: rgb(247, 246, 242);
+}
+.app-container{
+  min-height: 100vh;
+  height: auto;
+  background-color: rgb(247, 246, 242);
 }
 .background-general{
   background-color: rgb(247, 246, 242);
@@ -380,6 +393,7 @@ h5 {
 .main-form-full-width{
   width: 100%;
   display: flex;
+  
   justify-content: center;
   background-color: #F7F6F2;
   padding-bottom: 50px;
@@ -406,6 +420,8 @@ text[data-name="Australian Capital Territory"] {
   font-size: 15px;
 }
 footer{
+  /* position: fixed;
+  bottom: 0px; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -421,7 +437,46 @@ footer{
   column-gap:10px;
   align-items: center;
 }
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  color: honeydew;
+  padding: 20px;
+  justify-content: center;
+}
+.navbar-text{
+  width: 100%;
+  padding-left: 0px;
+  font-size: 25px;
+  
+  
+  display: flex;
+  justify-content: flex-start;
+}
+.email-form-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 767px) {
+  .app-container.main-app-container{
+    min-height: calc(100vh - 70px);
+    height: auto;
+    /* max-height: 871px; */
+  }
+  .navbar-text {
+    padding-left: 30px;
+    font-size: 20px;
+  }
+  .top-nav{
+    height: auto;
+    padding: 0px;
+    min-height: 60px;
+    align-items: center;
+  }
   footer{
 
     padding-left: 30px;
@@ -490,11 +545,13 @@ footer{
   }
   .senators-container{
     width: 100%;
-    box-shadow: none /* Sombra suave */
+    box-shadow: none; /* Sombra suave */
+    padding: 0px 30px !important;
   }
   .emailContainer{
     padding: 20px;
     width: 100%;
+    
   }
   .buttonsContainer {
     text-align: center;
@@ -530,7 +587,7 @@ footer{
     text-align: left;
   }
   .instructions{
-    padding: 0px 0px;
+    padding: 0px 20px;
     max-width: 1150px;
     width: 100%;
     align-items: flex-start;
@@ -546,6 +603,7 @@ footer{
   }
   .container-content{
     text-align: left;
+    padding: 0px 30px;
     
   }
   h3 > .typ-content{
@@ -572,6 +630,12 @@ footer{
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px){
+  .main-app-container{
+    min-height: 100vh;
+  }
+  .app-container{
+    min-height: 100vh;
+  }
   .senators-container{
     width: 100%;
   }
@@ -663,14 +727,24 @@ footer{
     padding-left: 0px;
     margin-left: 10px;
   }
+  .main-form-full-width{
+    padding-bottom: 0px;
+  }
 }
-@media (min-width: 1024px) and (max-width:1249px) {
+@media (min-width: 1024px) and (max-width:1244px) {
+  .main-app-container{
+    height: auto;
+    max-height: 1300px;
+  }
   .map{
     height: 100%;
     padding-top: 30px;
    }
-   .main-form-flex-container{
+   .main-form-flex-container,.instructions-findform-contain{
     padding: 20px 10px;
+   }
+   .instructions-findform-contain, .emailContainer {
+    max-width: 1200px;
    }
    .buttons{
     justify-content: left;
@@ -678,16 +752,34 @@ footer{
   .senators-container{
     width: 100%;
   }
+  .text-form-header{
+    font-size: 24px;
+  }
+  .subtext-form-header{
+    font-size: 18px;
+  }
+  .list-p-main{
+    font-size: 17px;
+  }
+  .list-p-main > svg{
+    width: 15px;
+  }
+  .emailContainer{
+    max-width: 1200px;
+  }
 
   
 }
 @media (min-width:1250px) and (max-width:1499px){
+  .app-container{
+    height: 100%;
+  }
   .footer-content-container{
     max-width: 1200px;
     width:100%;
     padding-left: 10px;
   }
-  .main-form-flex-container{
+  .main-form-flex-container, .instructions-findform-contain, .emailContainer {
     max-width: 1200px;
     padding: 0px;
   }
@@ -730,12 +822,15 @@ footer{
 }
 
 @media (min-width:1500px) and (max-width:1699px){
+  .app-container{
+    height: 100%;
+  }
   .footer-content-container{
     max-width: 1450px;
     width: 100%;
     padding-left: 10px;
   }
-  .main-form-flex-container{
+  .main-form-flex-container, .instructions-findform-contain, .emailContainer{
     max-width: 1450px;
     padding: 0px;
 
@@ -755,12 +850,15 @@ footer{
   }
 }
 @media (min-width:1700px) {
-   .footer-content-container{
+  .app-container{
+    height: 100%;
+  } 
+  .footer-content-container{
     max-width: 1650px;
     width: 100%;
     padding-left:10px ;
   }
-  .main-form-flex-container{
+  .main-form-flex-container, .instructions-findform-contain, .emailContainer{
     max-width: 1650px;
     padding: 0px;
 
@@ -794,6 +892,4 @@ footer{
     padding-left: 10px;
   }
 }
-@media (max-height:800px){
-  
-}
+

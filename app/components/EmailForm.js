@@ -49,23 +49,7 @@ const EmailForm = ({
       ? setHideAllQuestions(false)
       : setHideAllQuestions(true);
   };
-  const mapingQuestions = (dataQuestions) => {
-    return dataQuestions.map((el, index) => (
-      <Col className="questions" key={index}>
-        <Form.Group>
-          <Form.Label> {el.questions} </Form.Label>
-          <Form.Control
-            plaintext="true"
-            id="message-emailform"
-            onChange={handleQuestions}
-            type="text"
-            name={`question${index + 1}`}
-            required
-          />
-        </Form.Group>
-      </Col>
-    ));
-  };
+  
   const handleQuestions = (e) => {
     e.preventDefault();
     setQuestions({
@@ -158,16 +142,16 @@ const EmailForm = ({
   };
   console.log(showEmailForm);
   return (
+    <div className="email-form-container">
+
     <div className={"emailContainer"} hidden={showEmailForm}>
       {error ? (
         <Alert variant={"danger"}>
           All fields are required, please fill in the missing ones.
         </Alert>
       ) : null}
-      <div className="prewritten-email-btn-container">
-        <p style={{fontWeight:"bold"}} className={"form-label"}> Dont have time to answer all these questions? </p> <Button className="prewritten-email-btn" variant="success" onClick={handleDefaultEmail} > Click here to send your MP a pre-written email. </Button>  
-      </div>
-      <Form name="fm-email" onSubmit={send} noValidate validated={validated}>
+      
+      <Form name="fm-email" onSubmit={send} noValidate validated={validated} c>
         <div className={"formEmail"}>
           <Col>
             <Form.Group>
@@ -246,9 +230,7 @@ const EmailForm = ({
             </Form.Group>
           </Col>
         </div>
-        {hideAllQuestions === false ? (
-          mapingQuestions(dataQuestions)
-        ) : (
+        {
           <Col className="questions">
             <Form.Group>
               <Form.Label>Message</Form.Label>
@@ -265,7 +247,7 @@ const EmailForm = ({
               />
             </Form.Group>
           </Col>
-        )}
+        }
         <Loader
           visible={showLoadSpin}
           type="Puff"
@@ -332,6 +314,7 @@ const EmailForm = ({
             : "Send"}
         </Button>
       </div>
+    </div>
     </div>
   );
 };

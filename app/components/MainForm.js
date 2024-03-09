@@ -64,27 +64,7 @@ const MainForm = ({
     } else {
       setTac(false);
     }
-  };
-  const premierImageControler = (state) => {
-    switch (state) {
-      case 'vics':
-          return (
-            <Image src={vicsImage} alt="Victoria's Premier" className="mps-image"/>
-          )        
-        break;
-        case 'sas':
-          return (
-            <Image src={saImage} alt="South Africa's Premier" className="mps-image"/>
-          )        
-        break;
-        case 'nsws':
-          return (
-            <Image src={nswImage} alt="New South Wale's Premier" className="mps-image"/>
-          )        
-        break;
-      
-    }
-  } 
+  }; 
   const handleChange = (e) => {
     e.preventDefault();
     setDataUser({
@@ -123,7 +103,7 @@ const MainForm = ({
       backendURLBase,
       endpoints.toGetRepresentativesPerStates,
       clientId,
-      `&state=${states}&postcode=${dataUser.postalCode}`,
+      `&state=sas&postcode=${dataUser.postalCode}`,
       setMp,
       setSenator,
       setShowLoadSpin,
@@ -132,21 +112,19 @@ const MainForm = ({
     scroll.scrollToBottom();
   };
   return (
+    <>
     <div hidden={hideMain} className="main-form-full-width">
        <TAC setShowTAC={setShowTAC} showTAC={showTAC} />
-      <div className={"main-form-flex-container"}>
-        <div className="instructions-findform-contain">
+       <div className="instructions-findform-contain">
         <div hidden={hideInstructions} className={"instructions"}>
           <div className="img-mps-container">
-            {
-              premierImageControler(states)
-            }
+          <Image src={saImage} alt="South Africa's Premier" className="mps-image"/>
             
           </div>
           {/* <h2 className="subtitle-main" >{mainData.subtitle}</h2> */}
-          <h4 className="subtitle-content-mainform">{states === "sas" ? "SOUTH AUSTRALIA" : states === "nsws" ? "NEW SOUTH WALES" : states === "vics"? "VICTORIA" : "N/A"} DOESN’T CARE! </h4>
+          <h4 className="subtitle-content-mainform"> SOUTHERN AUSTRALIA’S DOESN’T CARE! </h4>
           <div className="container-p-content-main">
-            <p className="p-content-main"> Based on {states === "sas" ? "Southern Australian’s" : states === "nsws" ? "New South Wales " : states === "vics"? "Victoria’s" : "N/A"} plans to enforce a State Tax on GP clinics over the next 2 years…</p>
+            <p className="p-content-main"> Based on Southern Australian’s plans to enforce a State Tax on GP clinics over the next 2 years…</p>
             <p className="p-content-main list-p-main"> <ArrowBlack/> Your chance to get a bulk-billed GP appointment will reduce by 35%.<br/><br/>
             <ArrowBlack/> Your gap fee to see a private GP will increase by an average of $11.</p>
 
@@ -155,7 +133,7 @@ const MainForm = ({
         <div hidden={showFindForm} className={"form-container"}>
           <div className={"container-content"}>
             <h1 className="text-form-header">
-              Concerned about how {states === "sas" ? "Southern Australian’s" : states === "nsws" ? "New South Wales" : states === "vics"? "Victoria’s" : "N/A"} state tax will
+              Concerned about how Southern Australia’s state tax will
               impact your care?<br/> <span className="subtext-form-header"> It takes less than two minutes to have your say!</span> 
             </h1>
             {error ? (
@@ -241,6 +219,7 @@ const MainForm = ({
           </div> 
         </div>
         </div>
+    </div>
         <div className={"container senators-container"} hidden={showList}>
           <div className="note-container">
             <p>{mainData.note}</p>
@@ -340,8 +319,7 @@ const MainForm = ({
           typData={typData}
           showThankYou={showThankYou}
         />
-      </div>
-    </div>
+    </>
   );
 };
 export default MainForm;
