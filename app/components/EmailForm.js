@@ -151,7 +151,7 @@ const EmailForm = ({
         </Alert>
       ) : null}
       
-      <Form name="fm-email" onSubmit={send} noValidate validated={validated} c>
+      <Form name="fm-email" onSubmit={send} noValidate validated={validated} className="fm-email">
         <div className={"formEmail"}>
           <Col>
             <Form.Group>
@@ -293,26 +293,28 @@ const EmailForm = ({
       <div className={"container buttons-container-email-form"}>
         <Button
           id="backButton-emailform"
+          
           className={"button-email-form"}
-          variant={"dark"}
           onClick={back}
         >
           {emailData.backButton
             ? "please enter a back-button text on your dashboard"
             : "Back"}
         </Button>
-
-        <Button
-          id="sendButton-emailform"
-          type={"submit"}
-          className={"button-email-form"}
-          variant={"dark"}
-          onClick={send}
-        >
-          {emailData.sendButton
-            ? "please enter a send-button text on your dashboard"
-            : "Send"}
-        </Button>
+        <div className="personalice-btn-cont">
+            <span className="personalice-msg-btn">We would love you to personalise this email - feel free to edit it before you send to reflect your views.</span>
+          <Button
+            id="sendButton-emailform"
+            type={"submit"}
+            
+            className={"button-email-form"}
+            onClick={send}
+          >
+            {emailData.sendButton
+              ? "please enter a send-button text on your dashboard"
+              : "Send"}
+          </Button>
+        </div>
       </div>
     </div>
     </div>
