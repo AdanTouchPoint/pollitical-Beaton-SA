@@ -122,18 +122,18 @@ const MainForm = ({
             
           </div>
           {/* <h2 className="subtitle-main" >{mainData.subtitle}</h2> */}
-          <h4 className="subtitle-content-mainform"> SOUTHERN AUSTRALIA’S DOESN’T CARE! </h4>
+          <h4 className="subtitle-content-mainform"> SOUTH AUSTRALIA DOESN’T CARE! </h4>
           <div className="container-p-content-main">
-            <p className="p-content-main"> Based on Southern Australian’s plans to enforce a State Tax on GP clinics over the next 2 years…</p>
+            <p className="p-content-main"> Based on South Australia’s plans to enforce a State Tax on GP clinics over the next 2 years…</p>
             <p className="p-content-main list-p-main"> <ArrowBlack/> Your chance to get a bulk-billed GP appointment will reduce by 35%.<br/><br/>
-            <ArrowBlack/> Your gap fee to see a private GP will increase by an average of $11.</p>
+            <ArrowBlack/> Your gap fee to see a private GP will increase by an average of $12.</p>
 
           </div>
         </div>
         <div hidden={showFindForm} className={"form-container"}>
           <div className={"container-content"}>
             <h1 className="text-form-header">
-              Concerned about how Southern Australia’s state tax will
+              Concerned about how South Australia’s state tax will
               impact your care?<br/> <span className="subtext-form-header"> It takes less than two minutes to have your say!</span> 
             </h1>
             {error ? (
