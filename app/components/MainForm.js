@@ -118,7 +118,7 @@ const MainForm = ({
        <div className="instructions-findform-contain">
         <div hidden={hideInstructions} className={"instructions"}>
           <div className="img-mps-container">
-          <Image src={saImage} alt="South Africa's Premier" className="mps-image"/>
+          <Image src={saImage} alt="South Australia's Premier" className="mps-image"/>
             
           </div>
           {/* <h2 className="subtitle-main" >{mainData.subtitle}</h2> */}
