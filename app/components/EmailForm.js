@@ -37,7 +37,7 @@ const EmailForm = ({
   const [showLoadSpin, setShowLoadSpin] = useState(false);
   const [hideLastQuestion, setHideLastQuestion] = useState(true);
   const [hideAllQuestions, setHideAllQuestions] = useState(false);
-  const predefinedEmail = "Hello,\nI am writing to express my concern over payroll taxes on GPs, which threaten their operation and our healthcare quality. These taxes add financial strain, potentially leading to longer wait times and reduced access for the public.\nPlease consider the negative impact of these taxes on healthcare availability and support opposing them. Your action can help maintain a robust healthcare system for our community.";
+  const predefinedEmail = "Hello,\nI am writing to express my deep concern over the State Government’s decision to apply payroll tax on independent GPs, and the impact this will have on my ability to access high quality and affordable care. This tax will result in a higher price for me to see my GP and I am concerned this will mean the end of wide-spread bulk billing. \n I am concerned that the direct result of this will be an influx of people at Emergency Departments, adding to the pressure our hospital system is already under.\n\nPlease support me and my healthcare needs by opposing them - your action can help ensure a robust healthcare system.\n\nKind Regards,";
   const handleTickBox = (e) => {
     hideLastQuestion === true
       ? setHideLastQuestion(false)
@@ -242,7 +242,7 @@ const EmailForm = ({
                 as="textarea"
                 name={"question1"}
                 defaultValue={predefinedEmail}
-                rows={"5"}
+                rows={"8"}
                 required
               />
             </Form.Group>

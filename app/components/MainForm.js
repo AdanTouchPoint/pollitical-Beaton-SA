@@ -9,13 +9,14 @@ import EmailForm from "./EmailForm";
 import ThankYou from "./ThankYou";
 import Card from "react-bootstrap/cjs/Card";
 import Image from "next/image";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import { fetchRepresentatives } from "../assets/petitions/fetchRepresentatives";
 import TAC from "./TAC";
 import vicsImage from "../assets/images/VICS-premier.png"
 import nswImage from "../assets/images/NSW-premier.png"
 import saImage from "../assets/images/SA-premier.png"
 import ArrowBlack from "./ArrowBlack";
+import Link from "next/link";
 const MainForm = ({
   dataUser,
   setDataUser,
@@ -59,7 +60,6 @@ const MainForm = ({
     e.preventDefault;
     console.log("here");
     if (e.target.checked === true) {
-      setShowTAC(true);
       setTac(true);
     } else {
       setTac(false);
@@ -142,14 +142,6 @@ const MainForm = ({
                 spaces before of after your email or postcode.
               </Alert>
             ) : null}
-            <Link
-              activeClass="active"
-              to="section1"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            ></Link>
             <Form
               name="fm-find"
               onSubmit={click}
@@ -186,7 +178,7 @@ const MainForm = ({
                     name="conditions"
                     onClick={handleTerms}
                     required
-                    label={<p className="termsAndConds">{mainData.termsAndConditionsTxt}</p>}
+                    label={<Link target="_blank" className="termsAndConds" href="/TAC"> {mainData.termsAndConditionsTxt}</Link>}
                   />
                 </Form.Group>
                 <Form.Group className="buton-box-form">
@@ -224,14 +216,6 @@ const MainForm = ({
           <div className="note-container">
             <p>{mainData.note}</p>
           </div>
-          <Link
-            activeClass="active"
-            to="section1"
-            spy={true}
-            smooth={true}
-            offset={70}
-            duration={500}
-          ></Link>
           <h2>{mainData.positionName}</h2>
           <div className="representatives-container">
             {mp.length > 0 ? (
