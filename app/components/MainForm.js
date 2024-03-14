@@ -124,8 +124,8 @@ const MainForm = ({
           {/* <h2 className="subtitle-main" >{mainData.subtitle}</h2> */}
           <h4 className="subtitle-content-mainform"> SOUTH AUSTRALIA DOESN’T CARE! </h4>
           <div className="container-p-content-main">
-            <p className="p-content-main"> Based on South Australia’s plans to enforce a State Tax on GP clinics over the next 2 years…</p>
-            <p className="p-content-main list-p-main"> <ArrowBlack/> Your chance to get a bulk-billed GP appointment will reduce by 35%.<br/><br/>
+            <p className="p-content-main"> Based on South Australia’s plans to enforce a State Tax on GP clinics:</p>
+            <p className="p-content-main list-p-main"> <ArrowBlack/> 76% of GP clinics expect to decrease the number of bulk-billed GP appointments<br/><br/>
             <ArrowBlack/> Your gap fee to see a private GP will increase by an average of $12.</p>
 
           </div>
